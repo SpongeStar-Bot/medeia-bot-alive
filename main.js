@@ -24,7 +24,7 @@ global.timestamp = {
 const PORT = process.env.PORT || 3000
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 
-global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+global.prefix = new RegExp('^[' + (opts['prefix'] || '#!').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
 
 global.DATABASE = new (require('./lib/database'))(`${opts._[0] ? opts._[0] + '_' : ''}database.json`, null, 2)
 if (!global.DATABASE.data.users) global.DATABASE.data = {
@@ -52,10 +52,10 @@ if (opts['server']) conn.on('qr', qr => { global.qr = qr })
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
   conn.logger.info('Saving database . . .')
-  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database is up to date')
+  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database has been updated')
   else {
     global.DATABASE.save()
-    conn.logger.info('Done saving database!')
+    conn.logger.info('Database Saved!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000) // Save every minute
@@ -124,8 +124,8 @@ global.reloadHandler = function () {
     conn.off('group-add', conn.onAdd)
     conn.off('group-leave', conn.onLeave)
   }
-  conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject'
-  conn.bye = 'Selamat tinggal @user!'
+  conn.welcome = 'Nahh ini dia @user baru aja di omongin\nBtw selamat dateng ya di @subject'
+  conn.bye = 'Sianjer @user dia malah out padahal w sayang ama dia'
   conn.handler = handler.handler
   conn.onAdd = handler.welcome
   conn.onLeave = handler.leave
