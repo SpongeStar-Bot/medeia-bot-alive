@@ -78,25 +78,15 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     }
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || `
-╭─「 ${conn.user.name} 」
-│ Hai, %name!
-│
-│ Tersisa *%limit Limit*
-│ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
-│ %totalexp XP in Total
-│ 
-│ Tanggal: *%week %weton, %date*
-│ Waktu: *%time*
-│
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
-│ Github:
-│ %github
-╰────
+*◢■■■■■■■■■■■■■◣*
+*❥${conn.user.name} *
+*❥Name: %name*
+*❥Group: %group*
+*◥■■■■■■■■■■■■■◤*
 %readmore`
-    let header = conn.menu.header || '╭─「 %category 」'
-    let body   = conn.menu.body   || '│ • %cmd%islimit'
-    let footer = conn.menu.footer || '╰────\n'
+    let header = conn.menu.header || '*❦【%category】❦*'
+    let body   = conn.menu.body   || '*❥%cmd%islimit*'
+    let footer = conn.menu.footer || '*❦【%category】❦*'
     let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
     let _text  = before + '\n'
     for (let tag in groups) {
