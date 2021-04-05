@@ -1,7 +1,7 @@
 {
-  "name": "wabot-aq",
-  "version": "1.6.0",
-  "description": "Customizable WhatsApp Bot",
+  "name": "medeia-bot-alive",
+  "version": "3.2.1",
+  "description": "Medeia-bot-alive",
   "depecrated": false,
   "main": "index.js",
   "directories": {
@@ -19,16 +19,16 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/Nurutomo/wabot-aq",
+  "homepage": "https://github.com/SpongeStar-Bot/mmedeia-bot-alive",
   "author": {
-    "name": "Nurutomo"
+    "name": "Medeia"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nurutomo/wabot-aq.git"
+    "url": "git+https://github.com/SpongeStar-Bot/medeia-bot-alive.git"
   },
   "bugs": {
-    "url": "https://github.com/Nurutomo/wabot-aq/issues"
+    "url": "https://github.com/SpongeStar-Bot/medeia-bot-alive/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
